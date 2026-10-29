@@ -1,32 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class OSManager : MonoBehaviour
 {
-
     [Header("Dados Iniciais")]
     [SerializeField] private VirtualFolder desktopFolder;
 
-
-    [Header("Referências da Interface")]
+    [Header("Área de Trabalho e Janelas")]
     [SerializeField] private Transform desktopIconsContainer;
+    [SerializeField] private Transform windowsContainer;
     [SerializeField] private GameObject itemIconPrefab;
 
+    [Header("Prefabs de Janela")]
+    [SerializeField] private GameObject notepadWindowPrefab;
+    [SerializeField] private GameObject folderWindowPrefab;
 
-    [Header("Janela de Texto (Bloco de Notas)")]
-    [SerializeField] private GameObject notepadWindow;
-    [SerializeField] private TextMeshProUGUI notepadTitle;
-    [SerializeField] private TextMeshProUGUI notepadContent;
-
-    // Start is called before the first frame update
     void Start()
     {
         LoadDesktop();
     }
 
-    // Update is called once per frame
     public void LoadDesktop()
     {
         foreach (Transform child in desktopIconsContainer)
@@ -34,10 +26,14 @@ public class OSManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach (VirtualItem item in desktopFolder.contents)
+        if (desktopFolder != null)
         {
-            GameObject iconObj = Instantiate(itemIconPrefab, desktopIconsContainer);
-            iconObj.GetComponent<DesktopItemUI>().Setup(item, this);
+            foreach (VirtualItem item in desktopFolder.contents)
+            {
+                if (item == null) continue;
+                GameObject iconObj = Instantiate(itemIconPrefab, desktopIconsContainer);
+                iconObj.GetComponent<DesktopItemUI>().Setup(item, this);
+            }
         }
     }
 
@@ -49,20 +45,21 @@ public class OSManager : MonoBehaviour
         }
         else if (item is VirtualFolder folder)
         {
-            Debug.Log($"Abrindo pasta: {folder.itemName} com {folder.contents.Count} itens");
+            OpenFolder(folder);
         }
     }
 
     private void OpenTextFile(VirtualTextFile file)
     {
-        notepadWindow.SetActive(true);
-        notepadWindow.transform.SetAsLastSibling();
-        notepadTitle.text = file.itemName;
-        notepadContent.text = file.textContent;
+        GameObject windowObj = Instantiate(notepadWindowPrefab, windowsContainer);
+        windowObj.transform.SetAsLastSibling(); 
+        windowObj.GetComponent<NotepadWindowUI>().Setup(file);
     }
 
-    public void CloseNotepad()
+    private void OpenFolder(VirtualFolder folder)
     {
-        notepadWindow.SetActive(false);
+        GameObject windowObj = Instantiate(folderWindowPrefab, windowsContainer);
+        windowObj.transform.SetAsLastSibling(); 
+        windowObj.GetComponent<FolderWindowUI>().Setup(folder, this, itemIconPrefab);
     }
 }

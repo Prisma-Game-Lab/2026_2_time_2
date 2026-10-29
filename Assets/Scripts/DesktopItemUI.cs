@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
 
 public class DesktopItemUI : MonoBehaviour
 {
@@ -13,23 +10,33 @@ public class DesktopItemUI : MonoBehaviour
 
     private VirtualItem currentItem;
     private OSManager osManager;
+    private FolderWindowUI parentFolderWindow;
 
-    // Start is called before the first frame update
-    public void Setup(VirtualItem item, OSManager manager)
+    public void Setup(VirtualItem item, OSManager manager, FolderWindowUI folderWindow = null)
     {
         currentItem = item;
         osManager = manager;
+        parentFolderWindow = folderWindow;
 
-        nameText.text = item.itemName;
-        if (item.icon != null) iconImage.sprite = item.icon;
+        if (nameText != null) nameText.text = item.itemName;
+        if (iconImage != null && item.icon != null) iconImage.sprite = item.icon;
 
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(OnClickItem);
-
+        if (button != null)
+        {
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(OnClickItem);
+        }
     }
 
     private void OnClickItem()
     {
-        osManager.OpenItem(currentItem);
+        if (currentItem is VirtualFolder subFolder && parentFolderWindow != null)
+        {
+            parentFolderWindow.OpenSubFolder(subFolder);
+        }
+        else
+        {
+            osManager.OpenItem(currentItem);
+        }
     }
 }
