@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 412065752928983540}
   - component: {fileID: 1452761374204257602}
   - component: {fileID: 7947541918771888960}
+  - component: {fileID: 6167691416801754126}
   m_Layer: 6
   m_Name: Proto-Defender_03
   m_TagString: Untagged
@@ -120,3 +121,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5000001
+--- !u!114 &6167691416801754126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8134601939236436728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee96b7e85cb5fca468ac04b5d28ad2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabBala: {fileID: -6607105469289319954, guid: ec885b5ba1be4bf4d8e66694bd49e433, type: 3}
+  alcance: 4
+  intervaloTiro: 0.5
+  dano: 3
