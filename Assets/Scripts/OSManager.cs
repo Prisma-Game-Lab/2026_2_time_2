@@ -13,6 +13,8 @@ public class OSManager : MonoBehaviour
     [Header("Prefabs de Janela")]
     [SerializeField] private GameObject notepadWindowPrefab;
     [SerializeField] private GameObject folderWindowPrefab;
+    [SerializeField] private GameObject imageViewerWindowPrefab;
+    [SerializeField] private GameObject audioPlayerWindowPrefab;
 
     void Start()
     {
@@ -47,6 +49,14 @@ public class OSManager : MonoBehaviour
         {
             OpenFolder(folder);
         }
+        else if (item is VirtualImageFile imageFile)
+        {
+            OpenImageFile(imageFile);
+        }
+        else if (item is VirtualAudioFile audioFile)
+        {
+            OpenAudioFile(audioFile);
+        }
     }
 
     private void OpenTextFile(VirtualTextFile file)
@@ -61,5 +71,19 @@ public class OSManager : MonoBehaviour
         GameObject windowObj = Instantiate(folderWindowPrefab, windowsContainer);
         windowObj.transform.SetAsLastSibling(); 
         windowObj.GetComponent<FolderWindowUI>().Setup(folder, this, itemIconPrefab);
+    }
+
+    private void OpenImageFile(VirtualImageFile file)
+    {
+        GameObject windowObj = Instantiate(imageViewerWindowPrefab, windowsContainer);
+        windowObj.transform.SetAsLastSibling();
+        windowObj.GetComponent<ImageViewerWindowUI>().Setup(file);
+    }
+
+    private void OpenAudioFile(VirtualAudioFile file)
+    {
+        GameObject windowObj = Instantiate(audioPlayerWindowPrefab, windowsContainer);
+        windowObj.transform.SetAsLastSibling();
+        windowObj.GetComponent<AudioPlayerWindowUI>().Setup(file);
     }
 }
