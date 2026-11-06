@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1618129057946977704}
   - component: {fileID: 1089614161681609943}
   - component: {fileID: 3097670597031703948}
+  - component: {fileID: 6413834741573809065}
   m_Layer: 5
   m_Name: TD_View
   m_TagString: Untagged
@@ -86,7 +87,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 3
-  m_AspectRatio: 1.7777
+  m_AspectRatio: 1
+--- !u!114 &6413834741573809065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462151761566100379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaeae5805cfdbe44ea1fbc74fbf9a37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTD: {fileID: 0}
+  mundo: {fileID: 0}
+  prefabDefender: {fileID: 4734096648877692781, guid: f096d34a5f51b78499c359ffd4565a84, type: 3}
+  distanciaMinimaTorre: 1.5
 --- !u!1 &7969050565398610753
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +140,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1240, y: 720}
+  m_SizeDelta: {x: 720, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4981433935814981611
 CanvasRenderer:

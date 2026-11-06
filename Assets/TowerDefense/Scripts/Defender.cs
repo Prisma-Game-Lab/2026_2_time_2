@@ -10,6 +10,8 @@ namespace TowerDefense
         [SerializeField] private float alcance = 3f;
         [SerializeField] private float intervaloTiro = 1f;
         [SerializeField] private int dano = 1;
+        [SerializeField] private Defender proximoNivel;
+        public Defender ProximoNivel => proximoNivel;
 
         private float tempo;
 
@@ -21,7 +23,7 @@ namespace TowerDefense
             if (alvo == null) return;
 
             // o sprite aponta pra cima então up vira a direção do alvo
-            transform.up = alvo.transform.position - transform.position;
+            // transform.up = alvo.transform.position - transform.position;
 
             if (tempo >= intervaloTiro)
             {
