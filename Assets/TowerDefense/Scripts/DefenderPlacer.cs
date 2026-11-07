@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace TowerDefense
 {
@@ -10,20 +11,26 @@ namespace TowerDefense
         [SerializeField] private Transform mundo;
         [SerializeField] private Defender prefabDefender;
         [SerializeField] private float distanciaMinimaTorre = 1.5f;
+        [SerializeField] private Image[] slotsHotbar;
+        [SerializeField] private Color corNormal = new Color(0f, 0f, 0f, 0.5f);
+        [SerializeField] private Color corSelecionado = new Color(1f, 1f, 1f, 0.6f);
+        [SerializeField] private Defender[] tiposDefender;
 
         private Tower torre;
+        private int tipoEscolhido;
 
         private void Start()
         {
             torre = FindObjectOfType<Tower>();
+            EscolherTipo(0);
         }
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
-                Debug.Log($"mouse {Input.mousePosition}");
+            if (Input.GetKeyDown(KeyCode.Alpha1)) EscolherTipo(0);
+            if (Input.GetKeyDown(KeyCode.Alpha2)) EscolherTipo(1);
         }
-
+        
         public void OnPointerClick(PointerEventData eventData)
         {
             Vector3 posicao = CliqueParaMundo(eventData.position);
@@ -48,7 +55,7 @@ namespace TowerDefense
 
             if (Vector3.Distance(posicao, torre.transform.position) < distanciaMinimaTorre) return;
 
-            Instantiate(prefabDefender, posicao, Quaternion.identity, mundo);
+            Instantiate(tiposDefender[tipoEscolhido], posicao, Quaternion.identity, mundo);
         }
 
         // tela > ponto dentro da TD_View > 0 a 1 > mundo do TD
@@ -69,6 +76,15 @@ namespace TowerDefense
                     return defender;
             }
             return null;
+        }
+
+        // muda o tipo escolhido e destaca o slot dele na hotbar
+        public void EscolherTipo(int tipo)
+        {
+            tipoEscolhido = tipo;
+
+            for (int i = 0; i < slotsHotbar.Length; i++)
+                slotsHotbar[i].color = i == tipo ? corSelecionado : corNormal;
         }
     }
 }
