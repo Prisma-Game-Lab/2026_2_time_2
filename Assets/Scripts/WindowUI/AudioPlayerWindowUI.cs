@@ -11,6 +11,7 @@ public class AudioPlayerWindowUI : MonoBehaviour
     [SerializeField] private Button playPauseButton;
     [SerializeField] private TextMeshProUGUI playPauseButtonText;
     [SerializeField] private Slider progressSlider;
+    [SerializeField] private Slider volumeSlider;
     [SerializeField] private Button closeButton;
 
     private AudioSource audioSource;
@@ -41,7 +42,7 @@ public class AudioPlayerWindowUI : MonoBehaviour
             PlayAudio();
         }
 
-        // Configura botões
+        // Configuração dos botões
         if (playPauseButton != null)
         {
             playPauseButton.onClick.RemoveAllListeners();
@@ -54,11 +55,21 @@ public class AudioPlayerWindowUI : MonoBehaviour
             closeButton.onClick.AddListener(CloseWindow);
         }
 
-        // Eventos do Slider
+        // Barra de progresso do áudio
         if (progressSlider != null)
         {
             progressSlider.onValueChanged.RemoveAllListeners();
             progressSlider.onValueChanged.AddListener(OnSliderValueChanged);
+        }
+
+        // Configuração do slider de Volume (de 0 a 1)
+        if (volumeSlider != null)
+        {
+            volumeSlider.minValue = 0f;
+            volumeSlider.maxValue = 1f;
+            volumeSlider.value = audioSource.volume;
+            volumeSlider.onValueChanged.RemoveAllListeners();
+            volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
         }
     }
 
@@ -66,7 +77,6 @@ public class AudioPlayerWindowUI : MonoBehaviour
     {
         if (audioSource.clip == null) return;
 
-        // Atualiza a barra e o tempo se estiver tocando e o jogador não estiver arrastando a barra
         if (audioSource.isPlaying && !isDraggingSlider)
         {
             if (progressSlider != null)
@@ -77,7 +87,6 @@ public class AudioPlayerWindowUI : MonoBehaviour
 
         UpdateTimeDisplay();
 
-        // Se o áudio terminou sozinho, atualiza o botão
         if (!audioSource.isPlaying && audioSource.time >= audioSource.clip.length)
         {
             if (playPauseButtonText != null) playPauseButtonText.text = "Play";
@@ -92,7 +101,6 @@ public class AudioPlayerWindowUI : MonoBehaviour
         }
         else
         {
-            // Se chegou ao fim e clicou em play, reinicia do começo
             if (audioSource.time >= audioSource.clip.length)
             {
                 audioSource.time = 0f;
@@ -118,6 +126,15 @@ public class AudioPlayerWindowUI : MonoBehaviour
         if (audioSource.clip != null)
         {
             audioSource.time = Mathf.Clamp(value, 0f, audioSource.clip.length - 0.01f);
+        }
+    }
+
+    // Altera o volume do som em tempo real
+    public void OnVolumeChanged(float value)
+    {
+        if (audioSource != null)
+        {
+            audioSource.volume = value;
         }
     }
 
