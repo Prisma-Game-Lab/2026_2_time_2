@@ -7,6 +7,7 @@ namespace TowerDefense
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private float velocidade = 8f;
+        [SerializeField] private Impact prefabImpacto;
 
         private Enemy alvo;
         private int dano;
@@ -33,6 +34,7 @@ namespace TowerDefense
             if (Vector3.Distance(transform.position, destino) < 0.2f)
             {
                 alvo.TomarDano(dano);
+                Instantiate(prefabImpacto, transform.position, Quaternion.identity, transform.parent);
                 Destroy(gameObject);
             }
         }
