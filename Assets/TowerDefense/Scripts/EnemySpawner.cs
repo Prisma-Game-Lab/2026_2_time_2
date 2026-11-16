@@ -5,7 +5,7 @@ namespace TowerDefense
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private Enemy[] prefabsInimigos;
-        [SerializeField] private float intervalo = 2f;
+        [SerializeField] private float intervalo = 0.2f;
         [SerializeField] private Vector2 tamanhoMapa = new Vector2(16, 9);
 
         private float tempo;

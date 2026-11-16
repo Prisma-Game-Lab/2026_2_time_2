@@ -13,10 +13,34 @@ namespace TowerDefense
         [SerializeField] private Defender proximoNivel;
         public Defender ProximoNivel => proximoNivel;
 
+        [SerializeField] private int vida = 5;
+        [SerializeField] private Color corQuebrada = new Color(0.35f, 0.35f, 0.35f, 1f);
+
+        private int vidaMaxima;
         private float tempo;
+        private BarraVida barraVida;
+        private SpriteRenderer sprite;
+        private Animator animator;
+
+        public bool Quebrada => vida <= 0;
+
+        private void Awake()
+        {
+            vidaMaxima = vida;
+            barraVida = GetComponentInChildren<BarraVida>(true);
+            sprite = GetComponent<SpriteRenderer>();
+            animator = GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+            barraVida.Atualizar(vida, vidaMaxima);
+        }
 
         private void Update()
         {
+            if (Quebrada) return;
+
             tempo += Time.deltaTime;
 
             Enemy alvo = InimigoMaisProximo();
@@ -32,6 +56,35 @@ namespace TowerDefense
                 bala.Iniciar(alvo, dano);
             }
         }
+
+        public void TomarDano(int quantidade)
+        {
+            if (Quebrada) return;
+
+            vida -= quantidade;
+            barraVida.Atualizar(vida, vidaMaxima);
+
+            if (Quebrada)
+            {
+                animator.enabled = false;
+                sprite.color = corQuebrada;
+            }
+        }
+
+        public void Consertar()
+        {
+            vida = vidaMaxima;
+            barraVida.Atualizar(vida, vidaMaxima);
+
+            animator.enabled = true;
+            sprite.color = Color.white;
+        }
+
+        [ContextMenu("Quebrar")]
+        private void DebugQuebrar() => TomarDano(vida);
+
+        [ContextMenu("Consertar")]
+        private void DebugConsertar() => Consertar();
 
         private Enemy InimigoMaisProximo()
         {
