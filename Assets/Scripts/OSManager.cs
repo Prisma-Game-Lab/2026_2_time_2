@@ -57,6 +57,11 @@ public class OSManager : MonoBehaviour
         {
             OpenAudioFile(audioFile);
         }
+        else if (item is VirtualAppFile appFile)
+        {
+            GameObject win = Instantiate(appFile.windowPrefab, windowsContainer);
+            win.transform.SetAsLastSibling();
+        }
     }
 
     private void OpenTextFile(VirtualTextFile file)
