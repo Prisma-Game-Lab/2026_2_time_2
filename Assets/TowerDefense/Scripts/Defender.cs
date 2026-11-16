@@ -15,7 +15,10 @@ namespace TowerDefense
 
         [SerializeField] private int vida = 5;
         [SerializeField] private Color corQuebrada = new Color(0.35f, 0.35f, 0.35f, 1f);
-
+        [SerializeField] private int custo = 50;
+        
+        public int Custo => custo;
+        public int CustoConserto => custo / 2;
         private int vidaMaxima;
         private float tempo;
         private BarraVida barraVida;

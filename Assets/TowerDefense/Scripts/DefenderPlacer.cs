@@ -13,8 +13,9 @@ namespace TowerDefense
             if (slot == null || slot.Torre == null) return;
             if (slot.Torre.Quebrada) return;
 
-            if (slot.Torre.ProximoNivel != null)
-                slot.Construir(slot.Torre.ProximoNivel);
+            Defender proximo = slot.Torre.ProximoNivel;
+            if (proximo != null && TDManager.Instance.Gastar(proximo.Custo))
+                slot.Construir(proximo);
         }
 
         // slot que está debaixo de um ponto da tela (ou null)
