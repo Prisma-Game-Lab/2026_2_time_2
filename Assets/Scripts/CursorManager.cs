@@ -2,15 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
 
 /// <summary>
 /// Decide qual cursor mostrar a cada frame:
-/// 1) sobre um Selectable interagível (Button, Toggle, Slider...) -> cursor de botão
-/// 2) sobre um objeto que tenha (ou cujo pai tenha) um CursorZone -> cursor daquela tela
-/// 3) caso contrário -> cursor padrão (null = cursor do sistema)
+/// 1) sobre um TMP_InputField editável -> cursor de texto
+///    (campo somente leitura -> cursor da tela, nunca o de botão)
+/// 2) sobre um Selectable interagível (Button, Toggle, Slider...) -> cursor de botão
+/// 3) sobre um objeto que tenha (ou cujo pai tenha) um CursorZone -> cursor daquela tela
+/// 4) caso contrário -> cursor padrão (null = cursor do sistema)
 ///
 /// O cursor é desenhado pela própria Unity: uma RawImage num Canvas por cima de tudo,
 /// que segue o mouse. O cursor do sistema fica escondido. Assim a escala muda
@@ -31,6 +34,14 @@ public class CursorManager : MonoBehaviour
     [SerializeField] private Vector2 buttonHotspot = Vector2.zero;
     [Range(0.25f, 4f)]
     [SerializeField] private float buttonScale = 1f;
+
+    [Header("Cursor sobre campos de texto editáveis")]
+    [Tooltip("Ex.: um cursor em forma de \"I\". Se ficar vazio, campos de texto usam o cursor da tela.")]
+    [SerializeField] private Texture2D textCursor;
+    [Tooltip("Para um \"I\", normalmente o centro da imagem.")]
+    [SerializeField] private Vector2 textHotspot = Vector2.zero;
+    [Range(0.25f, 4f)]
+    [SerializeField] private float textScale = 1f;
 
     [Header("Tamanho global (multiplica todos os cursores)")]
     [Tooltip("Útil para uma opção de acessibilidade no menu de configurações.")]
@@ -106,8 +117,20 @@ public class CursorManager : MonoBehaviour
         GameObject hovered = GetTopUIObjectUnderPointer();
         if (hovered != null)
         {
+            // Campos de texto também são Selectable, então são checados antes dos botões.
+            TMP_InputField inputField = hovered.GetComponentInParent<TMP_InputField>();
+            bool overTextField = inputField != null && inputField.IsInteractable();
+            bool overEditableText = overTextField && !inputField.readOnly;
+
             Selectable selectable = hovered.GetComponentInParent<Selectable>();
-            if (selectable != null && selectable.IsInteractable() && buttonCursor != null)
+
+            if (overEditableText && textCursor != null)
+            {
+                texture = textCursor;
+                hotspot = textHotspot;
+                scale = textScale;
+            }
+            else if (!overTextField && selectable != null && selectable.IsInteractable() && buttonCursor != null)
             {
                 texture = buttonCursor;
                 hotspot = buttonHotspot;
