@@ -83,6 +83,12 @@ namespace TowerDefense
             sprite.color = Color.white;
         }
 
+        // 0 = quebrada (cinza), 1 = pronta (cor normal)
+        public void MostrarConserto(float progresso)
+        {
+            sprite.color = Color.Lerp(corQuebrada, Color.white, progresso);
+        }
+
         [ContextMenu("Quebrar")]
         private void DebugQuebrar() => TomarDano(vida);
 
