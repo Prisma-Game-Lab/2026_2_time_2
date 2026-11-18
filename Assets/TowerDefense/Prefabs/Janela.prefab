@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 7327181780340762077}
   - component: {fileID: 4981433935814981611}
   - component: {fileID: 498266315524074911}
+  - component: {fileID: -8547480651455088759}
   m_Layer: 5
   m_Name: Janela
   m_TagString: Untagged
@@ -577,6 +578,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-8547480651455088759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7969050565398610753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3659353e5359ce3499d329307537d3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabMundo: {fileID: 2292231721801465283, guid: 69709eb947a09b54baf5d9293575c354, type: 3}
+  posicaoMundo: {x: 1000, y: 0, z: 0}
+  placer: {fileID: 6413834741573809065}
 --- !u!1 &8230512916281892080
 GameObject:
   m_ObjectHideFlags: 0

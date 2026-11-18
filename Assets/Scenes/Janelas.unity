@@ -368,6 +368,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81667996cf964c54d8f2bcd511183da2, type: 3}
+--- !u!224 &416598737 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5094561192754437334, guid: 81667996cf964c54d8f2bcd511183da2, type: 3}
+  m_PrefabInstance: {fileID: 416598736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &636504099
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +498,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1172,7 +1177,7 @@ RectTransform:
   - {fileID: 800244259}
   - {fileID: 1494717181}
   - {fileID: 404799195}
-  - {fileID: 1189695453}
+  - {fileID: 416598737}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

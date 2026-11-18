@@ -25,6 +25,8 @@ public class OSManager : MonoBehaviour
     // Cópia da árvore de arquivos usada durante o jogo. Os assets originais nunca são alterados.
     private VirtualFolder runtimeDesktop;
     private readonly Dictionary<VirtualItem, VirtualItem> runtimeCopies = new Dictionary<VirtualItem, VirtualItem>();
+    // janela aberta de cada app (só uma por app)
+    private readonly Dictionary<GameObject, GameObject> openApps = new Dictionary<GameObject, GameObject>();
     private readonly List<VirtualItem> createdAtRuntime = new List<VirtualItem>();
 
     void Start()
@@ -135,8 +137,7 @@ public class OSManager : MonoBehaviour
         }
         else if (item is VirtualAppFile appFile)
         {
-            GameObject win = Instantiate(appFile.windowPrefab, windowsContainer);
-            win.transform.SetAsLastSibling();
+            OpenApp(appFile);
         }
     }
 
@@ -166,6 +167,20 @@ public class OSManager : MonoBehaviour
         GameObject windowObj = Instantiate(audioPlayerWindowPrefab, windowsContainer);
         windowObj.transform.SetAsLastSibling();
         windowObj.GetComponent<AudioPlayerWindowUI>().Setup(file);
+    }
+
+    private void OpenApp(VirtualAppFile app)
+    {
+        // já está aberto: só traz pra frente
+        if (openApps.TryGetValue(app.windowPrefab, out GameObject aberta) && aberta != null)
+        {
+            aberta.transform.SetAsLastSibling();
+            return;
+        }
+
+        GameObject win = Instantiate(app.windowPrefab, windowsContainer);
+        win.transform.SetAsLastSibling();
+        openApps[app.windowPrefab] = win;
     }
 
     private void OnDestroy()
