@@ -19,7 +19,17 @@ public class DesktopItemUI : MonoBehaviour
         parentFolderWindow = folderWindow;
 
         if (nameText != null) nameText.text = item.itemName;
-        if (iconImage != null && item.icon != null) iconImage.sprite = item.icon;
+
+        if (iconImage != null)
+        {
+            Sprite sprite = item.icon;
+
+            // Pasta ainda bloqueada com ícone de cadeado definido: usa esse ícone.
+            if (item is VirtualFolder folder && folder.RequiresPassword && folder.lockedIcon != null)
+                sprite = folder.lockedIcon;
+
+            if (sprite != null) iconImage.sprite = sprite;
+        }
 
         if (button != null)
         {
@@ -32,7 +42,12 @@ public class DesktopItemUI : MonoBehaviour
     {
         if (currentItem is VirtualFolder subFolder && parentFolderWindow != null)
         {
-            parentFolderWindow.OpenSubFolder(subFolder);
+            // Subpasta dentro de uma janela de pasta: pede a senha (se precisar) antes de entrar.
+            FolderWindowUI window = parentFolderWindow;
+            osManager.RequestFolderAccess(subFolder, () =>
+            {
+                if (window != null) window.OpenSubFolder(subFolder);
+            });
         }
         else
         {

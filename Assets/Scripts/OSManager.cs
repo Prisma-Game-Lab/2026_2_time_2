@@ -16,6 +16,8 @@ public class OSManager : MonoBehaviour
     [SerializeField] private GameObject folderWindowPrefab;
     [SerializeField] private GameObject imageViewerWindowPrefab;
     [SerializeField] private GameObject audioPlayerWindowPrefab;
+    [Tooltip("Caixa de senha das pastas bloqueadas (precisa ter o PasswordPromptUI).")]
+    [SerializeField] private GameObject passwordPromptPrefab;
 
     [Header("Novos arquivos de texto")]
     [Tooltip("Ícone dos arquivos criados pelo jogador (ex.: txtPlaceHolder).")]
@@ -123,7 +125,7 @@ public class OSManager : MonoBehaviour
         }
         else if (item is VirtualFolder folder)
         {
-            OpenFolder(folder);
+            RequestFolderAccess(folder, () => OpenFolder(folder));
         }
         else if (item is VirtualImageFile imageFile)
         {
@@ -138,6 +140,35 @@ public class OSManager : MonoBehaviour
             GameObject win = Instantiate(appFile.windowPrefab, windowsContainer);
             win.transform.SetAsLastSibling();
         }
+    }
+
+    /// <summary>
+    /// Se a pasta estiver bloqueada, mostra a caixa de senha e só chama onGranted
+    /// quando o jogador acertar. Se não estiver, chama onGranted na hora.
+    /// </summary>
+    public void RequestFolderAccess(VirtualFolder folder, System.Action onGranted)
+    {
+        if (folder == null) return;
+
+        if (!folder.RequiresPassword)
+        {
+            onGranted?.Invoke();
+            return;
+        }
+
+        if (passwordPromptPrefab == null)
+        {
+            Debug.LogWarning($"A pasta \"{folder.itemName}\" está bloqueada, mas o OSManager não tem um Password Prompt Prefab.");
+            return;
+        }
+
+        GameObject promptObj = Instantiate(passwordPromptPrefab, windowsContainer);
+        promptObj.transform.SetAsLastSibling();
+        promptObj.GetComponent<PasswordPromptUI>().Setup(folder, () =>
+        {
+            RefreshDesktop();          // troca o ícone de cadeado pelo normal
+            onGranted?.Invoke();
+        });
     }
 
     private void OpenTextFile(VirtualTextFile file, bool isNew = false)
