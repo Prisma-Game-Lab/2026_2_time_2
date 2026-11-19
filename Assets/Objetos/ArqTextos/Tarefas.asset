@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e77a73cbc7c87a45a0fb710fcef2695, type: 3}
-  m_Name: Dados
+  m_Name: Tarefas
   m_EditorClassIdentifier: 
-  itemName: DadosULTRAsecretos
-  icon: {fileID: 21300000, guid: 853aeb48da3f55748923f4445970417e, type: 3}
-  textContent: "SEGREDO SEGREDO SEGREDO!!!!\n\nTEU PAI \xC9 GAY!!!!"
+  itemName: Tarefas.txt
+  icon: {fileID: 21300000, guid: ed7ca550cdf65804db1ec1cddffb3892, type: 3}
+  textContent: "Carro: agendar troca de \xF3leo e filtro + checar calibragem do estepe.\n\nContas:
+    Ir ao banco pagar os boletos e conferir extrato\n\n\n"
+  editable: 0
