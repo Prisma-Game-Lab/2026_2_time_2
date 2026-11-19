@@ -39,6 +39,7 @@ namespace TowerDefense
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (TDManager.Instance.Terminou) return;
             arrastando = TDManager.Instance.PodePagar(prefabTorre.Custo);
             if (!arrastando) return;
 

@@ -24,6 +24,7 @@ namespace TowerDefense
 
         private void Update()
         {
+            if (TDManager.Instance.Terminou) return;
             Defender defender = DefenderMaisProximo();
 
             // vai no defender só se ele estiver mais perto que a torre principal

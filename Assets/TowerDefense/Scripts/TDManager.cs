@@ -10,6 +10,13 @@ namespace TowerDefense
 
         // a hotbar escuta isso pra escurecer o que não dá pra comprar
         public static event Action<int> DinheiroMudou;
+        // o jogo principal escuta isso: true = vitória, false = derrota
+        public static event Action<bool> PartidaTerminou;
+
+        [SerializeField] private GameObject telaVitoria;
+        [SerializeField] private GameObject telaDerrota;
+
+        public bool Terminou { get; private set; }
 
         [SerializeField] private int dinheiroInicial = 100;
         [SerializeField] private ContadorNumero contadorDinheiro;
@@ -47,6 +54,24 @@ namespace TowerDefense
             Dinheiro = valor;
             contadorDinheiro.Mostrar(Dinheiro);
             DinheiroMudou?.Invoke(Dinheiro);
+        }
+
+        public void Vencer()
+        {
+            if (Terminou) return;
+
+            Terminou = true;
+            telaVitoria.SetActive(true);
+            PartidaTerminou?.Invoke(true);
+        }
+
+        public void Perder()
+        {
+            if (Terminou) return;
+
+            Terminou = true;
+            telaDerrota.SetActive(true);
+            PartidaTerminou?.Invoke(false);
         }
     }
 }

@@ -15,6 +15,7 @@ namespace TowerDefense
 
         [SerializeField] private int vida = 5;
         [SerializeField] private Color corQuebrada = new Color(0.35f, 0.35f, 0.35f, 1f);
+        [SerializeField] private Color corAlerta = new Color(0.55f, 0.15f, 0.15f, 1f);
         [SerializeField] private int custo = 50;
         
         public int Custo => custo;
@@ -42,7 +43,13 @@ namespace TowerDefense
 
         private void Update()
         {
-            if (Quebrada) return;
+            if (TDManager.Instance.Terminou) return;
+            // pisca entre cinza e vermelho até alguém consertar
+            if (Quebrada)
+            {
+                sprite.color = Color.Lerp(corQuebrada, corAlerta, Mathf.PingPong(Time.time * 2f, 1f));
+                return;
+            }
 
             tempo += Time.deltaTime;
 
@@ -81,12 +88,6 @@ namespace TowerDefense
 
             animator.enabled = true;
             sprite.color = Color.white;
-        }
-
-        // 0 = quebrada (cinza), 1 = pronta (cor normal)
-        public void MostrarConserto(float progresso)
-        {
-            sprite.color = Color.Lerp(corQuebrada, Color.white, progresso);
         }
 
         [ContextMenu("Quebrar")]
