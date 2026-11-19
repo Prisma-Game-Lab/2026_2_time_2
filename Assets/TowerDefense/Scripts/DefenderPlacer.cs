@@ -3,19 +3,34 @@ using UnityEngine.EventSystems;
 
 namespace TowerDefense
 {
+    // clique numa torre, se estiver quebrada conserta, senão faz upgrade
     public class DefenderPlacer : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] private Camera cameraTD;
+        [SerializeField] private Impact efeitoUpgrade;
+        [SerializeField] private Vector3 deslocamentoEfeito = new Vector3(0f, 0.6f, 0f);
+
         public void DefinirCamera(Camera camera) => cameraTD = camera;
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (TDManager.Instance.Terminou) return;
             Slot slot = SlotEm(eventData.position);
             if (slot == null || slot.Torre == null) return;
-            if (slot.Torre.Quebrada) return;
 
-            if (slot.Torre.ProximoNivel != null)
-                slot.Construir(slot.Torre.ProximoNivel);
+            if (slot.Torre.Quebrada)
+            {
+                if (TDManager.Instance.Gastar(slot.Torre.CustoConserto))
+                    slot.Torre.Consertar();
+                return;
+            }
+
+            Defender proximo = slot.Torre.ProximoNivel;
+            if (proximo != null && TDManager.Instance.Gastar(proximo.Custo))
+            {
+                slot.Construir(proximo);
+                Instantiate(efeitoUpgrade, slot.transform.position + deslocamentoEfeito, Quaternion.identity, slot.transform);
+            }
         }
 
         // slot que está debaixo de um ponto da tela (ou null)

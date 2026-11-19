@@ -10,6 +10,7 @@ namespace TowerDefense
         [SerializeField] private int dano = 1;
         [SerializeField] private float distanciaAtaque = 0.8f;
         [SerializeField] private BarraVida barraVida;
+        [SerializeField] private int recompensa = 5;
 
         private Tower torre;
         private int vidaMaxima;
@@ -23,6 +24,7 @@ namespace TowerDefense
 
         private void Update()
         {
+            if (TDManager.Instance.Terminou) return;
             Defender defender = DefenderMaisProximo();
 
             // vai no defender só se ele estiver mais perto que a torre principal
@@ -71,11 +73,16 @@ namespace TowerDefense
 
         public void TomarDano(int quantidade)
         {
+            if (vida <= 0) return;
+
             vida -= quantidade;
             barraVida.Atualizar(vida, vidaMaxima);
 
             if (vida <= 0)
+            {
+                TDManager.Instance.Ganhar(recompensa);
                 Destroy(gameObject);
+            }
         }
 
         [ContextMenu("Tomar 1 de dano")]

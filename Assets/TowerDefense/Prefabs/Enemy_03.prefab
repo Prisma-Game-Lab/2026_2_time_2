@@ -167,6 +167,7 @@ MonoBehaviour:
   dano: 4
   distanciaAtaque: 0.8
   barraVida: {fileID: 5069963850669405207}
+  recompensa: 15
 --- !u!1001 &3854716863697823730
 PrefabInstance:
   m_ObjectHideFlags: 0

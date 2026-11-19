@@ -17,7 +17,8 @@ namespace TowerDefense
 
         public void TomarDano(int quantidade)
         {
-            if (vida <= 0) return;
+            if (vida <= 0)
+                TDManager.Instance.Perder();
 
             vida -= quantidade;
             barraVida.Atualizar(vida, vidaMaxima);

@@ -199,7 +199,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -392,38 +392,154 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 916990265}
     m_Modifications:
-    - target: {fileID: 2857866765279932976, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
+    - target: {fileID: 564785331305740639, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 2857866765279932976, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
+    - target: {fileID: 3232190312613756233, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 2857866765279932976, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
+    - target: {fileID: 3566015539761718455, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: m_AspectRatio
+      value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 2857866765279932976, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+    - target: {fileID: 3973081738203687917, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.size
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 6009231470385216332, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
+    - target: {fileID: 3973081738203687917, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[0]
+      value: 
+      objectReference: {fileID: -500807138, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 3973081738203687917, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[1]
+      value: 
+      objectReference: {fileID: -2133111141, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 3973081738203687917, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[2]
+      value: 
+      objectReference: {fileID: 1696904808, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 3973081738203687917, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[3]
+      value: 
+      objectReference: {fileID: -682956722, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 3973081738203687917, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[4]
+      value: 
+      objectReference: {fileID: 198104943, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 3973081738203687917, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[5]
+      value: 
+      objectReference: {fileID: -844447552, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 3973081738203687917, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[6]
+      value: 
+      objectReference: {fileID: -1684549992, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 3973081738203687917, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[7]
+      value: 
+      objectReference: {fileID: -1000373904, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 3973081738203687917, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[8]
+      value: 
+      objectReference: {fileID: 1077810402, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 3973081738203687917, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[9]
+      value: 
+      objectReference: {fileID: -1008218483, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 4279659566204353118, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: m_AspectRatio
+      value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 6009231470385216332, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
+    - target: {fileID: 5177901908100114575, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.size
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 6009231470385216332, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
+    - target: {fileID: 5177901908100114575, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[0]
+      value: 
+      objectReference: {fileID: -500807138, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5177901908100114575, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[1]
+      value: 
+      objectReference: {fileID: -2133111141, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5177901908100114575, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[2]
+      value: 
+      objectReference: {fileID: 1696904808, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5177901908100114575, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[3]
+      value: 
+      objectReference: {fileID: -682956722, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5177901908100114575, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[4]
+      value: 
+      objectReference: {fileID: 198104943, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5177901908100114575, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[5]
+      value: 
+      objectReference: {fileID: -844447552, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5177901908100114575, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[6]
+      value: 
+      objectReference: {fileID: -1684549992, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5177901908100114575, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[7]
+      value: 
+      objectReference: {fileID: -1000373904, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5177901908100114575, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[8]
+      value: 
+      objectReference: {fileID: 1077810402, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5177901908100114575, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[9]
+      value: 
+      objectReference: {fileID: -1008218483, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5344491701259280997, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.size
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 6009231470385216332, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 5344491701259280997, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[0]
+      value: 
+      objectReference: {fileID: -500807138, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5344491701259280997, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[1]
+      value: 
+      objectReference: {fileID: -2133111141, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5344491701259280997, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[2]
+      value: 
+      objectReference: {fileID: 1696904808, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5344491701259280997, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[3]
+      value: 
+      objectReference: {fileID: -682956722, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5344491701259280997, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[4]
+      value: 
+      objectReference: {fileID: 198104943, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5344491701259280997, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[5]
+      value: 
+      objectReference: {fileID: -844447552, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5344491701259280997, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[6]
+      value: 
+      objectReference: {fileID: -1684549992, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5344491701259280997, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[7]
+      value: 
+      objectReference: {fileID: -1000373904, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5344491701259280997, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[8]
+      value: 
+      objectReference: {fileID: 1077810402, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
+    - target: {fileID: 5344491701259280997, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: quadrosMoeda.Array.data[9]
+      value: 
+      objectReference: {fileID: -1008218483, guid: 244589027b7d24e4999c7d610c181eb1, type: 3}
     - target: {fileID: 6413834741573809065, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
       propertyPath: mundo
       value: 
@@ -531,6 +647,10 @@ PrefabInstance:
     - target: {fileID: 7969050565398610753, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
       propertyPath: m_Name
       value: Janela
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883833251737593356, guid: c3fa2a692eb47de47b7f0e30de7d2f6b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

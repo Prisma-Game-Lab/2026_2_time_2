@@ -142,6 +142,7 @@ MonoBehaviour:
   proximoNivel: {fileID: -5530245279583010, guid: 87e4481b84938fa4b9a8a10d83109d9a, type: 3}
   vida: 60
   corQuebrada: {r: 0.35, g: 0.35, b: 0.35, a: 1}
+  custo: 70
 --- !u!95 &8518882019134496360
 Animator:
   serializedVersion: 5
