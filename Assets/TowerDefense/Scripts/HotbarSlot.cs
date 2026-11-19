@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,7 +10,7 @@ namespace TowerDefense
         [SerializeField] private Defender prefabTorre;
         [SerializeField] private Image fantasma;
         [SerializeField] private DefenderPlacer placer;
-        [SerializeField] private TMP_Text textoPreco;
+        [SerializeField] private ContadorNumero precoDigitos;
         [SerializeField] private float alphaSemDinheiro = 0.4f;
 
         private CanvasGroup grupo;
@@ -20,7 +19,7 @@ namespace TowerDefense
         private void Awake()
         {
             grupo = GetComponent<CanvasGroup>();
-            textoPreco.text = prefabTorre.Custo.ToString();
+            precoDigitos.Mostrar(prefabTorre.Custo);
         }
 
         private void OnEnable()

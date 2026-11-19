@@ -1,5 +1,4 @@
 using System;
-using TMPro;
 using UnityEngine;
 
 namespace TowerDefense
@@ -13,7 +12,7 @@ namespace TowerDefense
         public static event Action<int> DinheiroMudou;
 
         [SerializeField] private int dinheiroInicial = 100;
-        [SerializeField] private TMP_Text textoDinheiro;
+        [SerializeField] private ContadorNumero contadorDinheiro;
 
         public int Dinheiro { get; private set; }
 
@@ -46,7 +45,7 @@ namespace TowerDefense
         private void MudarDinheiro(int valor)
         {
             Dinheiro = valor;
-            textoDinheiro.text = Dinheiro.ToString();
+            contadorDinheiro.Mostrar(Dinheiro);
             DinheiroMudou?.Invoke(Dinheiro);
         }
     }
