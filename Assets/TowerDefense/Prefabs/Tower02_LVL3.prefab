@@ -136,11 +136,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabBala: {fileID: -6607105469289319954, guid: ab6de190000f734419b6d123fe3be572, type: 3}
-  alcance: 4
-  intervaloTiro: 0.5
-  dano: 3
+  alcance: 3.5
+  intervaloTiro: 0.8
+  dano: 32
   proximoNivel: {fileID: 0}
-  vida: 5
+  vida: 100
   corQuebrada: {r: 0.35, g: 0.35, b: 0.35, a: 1}
   custo: 90
 --- !u!95 &-8695300589290992308

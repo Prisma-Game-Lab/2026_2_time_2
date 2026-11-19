@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1436876bcda48b4e96cb79bead4aaba, type: 3}
   m_Name: Cadu
   m_EditorClassIdentifier: 
-  itemName: Cadu<3
-  icon: {fileID: 21300000, guid: 097af6e683919d94185b37abea748006, type: 3}
-  imageContent: {fileID: 21300000, guid: cb2e65f20a7d6c747a91dc3c396db018, type: 3}
+  itemName: "Fam\xEDlia.JPG"
+  icon: {fileID: 21300000, guid: fd10c9efd81ea41489bff55f15482a02, type: 3}
+  imageContent: {fileID: 21300000, guid: 9061e125b69187f4385213aebd425231, type: 3}

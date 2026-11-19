@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e77a73cbc7c87a45a0fb710fcef2695, type: 3}
-  m_Name: NovoArquivo
+  m_Name: Lembrete
   m_EditorClassIdentifier: 
-  itemName: Henrique
-  icon: {fileID: 21300000, guid: 853aeb48da3f55748923f4445970417e, type: 3}
-  textContent: "Eu amo o Henrique ele \xE9 muito legal :D\n"
+  itemName: lembrete.txt
+  icon: {fileID: 21300000, guid: ed7ca550cdf65804db1ec1cddffb3892, type: 3}
+  textContent: "N\xE3o posso esquecer novamente.\r\nO dia em que tudo come\xE7ou.\r\nAquele
+    em que mam\xE3e chegou em casa com o bolo de chocolate.\n"
+  editable: 0
