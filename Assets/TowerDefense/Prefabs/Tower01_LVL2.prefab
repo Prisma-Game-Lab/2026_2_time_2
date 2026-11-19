@@ -137,10 +137,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabBala: {fileID: -6607105469289319954, guid: 17220d18ab407dc4d86f6b1aa51b3c94, type: 3}
   alcance: 3.5
-  intervaloTiro: 0.7
-  dano: 2
+  intervaloTiro: 0.35
+  dano: 5
   proximoNivel: {fileID: 6167691416801754126, guid: 25a6da714eed7624cbee2e5caef080dc, type: 3}
-  vida: 5
+  vida: 65
   corQuebrada: {r: 0.35, g: 0.35, b: 0.35, a: 1}
 --- !u!95 &1373035226565619759
 Animator:
