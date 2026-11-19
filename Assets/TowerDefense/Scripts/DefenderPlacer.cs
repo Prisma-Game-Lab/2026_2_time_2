@@ -6,6 +6,7 @@ namespace TowerDefense
     public class DefenderPlacer : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] private Camera cameraTD;
+        public void DefinirCamera(Camera camera) => cameraTD = camera;
 
         public void OnPointerClick(PointerEventData eventData)
         {
