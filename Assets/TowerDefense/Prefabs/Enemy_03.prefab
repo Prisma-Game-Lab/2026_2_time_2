@@ -162,9 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e2a938afe1942438cecb800f8fd3d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 3
-  velocidade: 1
-  dano: 1
+  vida: 25
+  velocidade: 0.6
+  dano: 4
   distanciaAtaque: 0.8
   barraVida: {fileID: 5069963850669405207}
 --- !u!1001 &3854716863697823730
