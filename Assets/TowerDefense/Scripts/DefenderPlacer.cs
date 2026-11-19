@@ -60,6 +60,9 @@ namespace TowerDefense
             if (consertando != null) consertando.MostrarConserto(0f);
             consertando = null;
         }
+=======
+        public void DefinirCamera(Camera camera) => cameraTD = camera;
+>>>>>>> main
 
         public void OnPointerClick(PointerEventData eventData)
         {
